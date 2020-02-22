@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Settings, Sidebar /* TAO , TagsView*/ } from './components'
+// import RightPanel from '@/components/RightPanel'
+import { AppMain, Navbar, Sidebar /* TAO , TagsView*/ } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
@@ -26,8 +26,8 @@ export default {
   components: {
     AppMain,
     Navbar,
-    RightPanel,
-    Settings,
+    // RightPanel,
+    // Settings,
     Sidebar
     // TAO TagsView
   },

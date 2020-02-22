@@ -7,11 +7,12 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
+/* TAO
 import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
-
+*/
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -79,11 +80,102 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: 'Data Gravity', icon: 'dashboard', affix: true } // TAO
       }
     ]
   },
   {
+    path: '/',
+    component: Layout,
+    redirect: '/datasources',
+    children: [
+      {
+        path: 'datasources',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Datasources',
+        meta: { title: 'Sources de données', icon: 'list', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/integrationstatus',
+    children: [
+      {
+        path: 'integrationstatus',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Integrationstatus',
+        meta: { title: 'Statuts de collecte', icon: 'table', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/datadistribution',
+    children: [
+      {
+        path: 'datadistribution',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Datadistribution',
+        meta: { title: 'Distribution de données', icon: 'chart', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dataprocessing',
+    children: [
+      {
+        path: 'dataprocessing',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Dataprocessing',
+        meta: { title: 'Data Processing', icon: 'skill', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/ia',
+    children: [
+      {
+        path: 'ia',
+        component: () => import('@/views/dashboard/index'),
+        name: 'ia',
+        meta: { title: 'Intelligence Artificielle', icon: 'eye-open', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/export',
+    children: [
+      {
+        path: 'export',
+        component: () => import('@/views/dashboard/index'),
+        name: 'export',
+        meta: { title: 'Exportation', icon: 'excel', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/assistance',
+    children: [
+      {
+        path: 'assistance',
+        component: () => import('@/views/dashboard/index'),
+        name: 'assistance',
+        meta: { title: 'Assistance Technique', icon: 'bug', affix: true } // TAO
+      }
+    ]
+  }
+  /* TAO {
     path: '/documentation',
     component: Layout,
     children: [
@@ -121,7 +213,7 @@ export const constantRoutes = [
         meta: { title: 'Profile', icon: 'user', noCache: true }
       }
     ]
-  }
+  }*/
 ]
 
 /**
@@ -129,7 +221,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  {
+  /* TAO {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
@@ -182,10 +274,10 @@ export const asyncRoutes = [
         meta: { title: 'Icons', icon: 'icon', noCache: true }
       }
     ]
-  },
+  },*/
 
   /** when your routing map is too long, you can split it into small modules **/
-  componentsRouter,
+  /* TAOcomponentsRouter,
   chartsRouter,
   nestedRouter,
   tableRouter,
@@ -382,7 +474,7 @@ export const asyncRoutes = [
       }
     ]
   },
-
+*/
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

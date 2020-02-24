@@ -91,7 +91,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'datasources',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/data-sources/index'),
         name: 'Datasources',
         meta: { title: 'Sources de données', icon: 'list', affix: true } // TAO
       }
@@ -104,9 +104,22 @@ export const constantRoutes = [
     children: [
       {
         path: 'integrationstatus',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/data-integration/index'),
         name: 'Integrationstatus',
         meta: { title: 'Statuts de collecte', icon: 'table', affix: true } // TAO
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/securitequantaine',
+    children: [
+      {
+        path: 'securitequantaine',
+        component: () => import('@/views/data-quarantaine/index'),
+        name: 'securitequantaine',
+        meta: { title: 'Sécurité: quarantaine', icon: 'lock', affix: true } // TAO
       }
     ]
   },
@@ -117,7 +130,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'datadistribution',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/data-distribution/index'),
         name: 'Datadistribution',
         meta: { title: 'Distribution de données', icon: 'chart', affix: true } // TAO
       }
@@ -130,7 +143,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'dataprocessing',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/data-processing/index'),
         name: 'Dataprocessing',
         meta: { title: 'Data Processing', icon: 'skill', affix: true } // TAO
       }
@@ -143,7 +156,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'ia',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/data-ia/index'),
         name: 'ia',
         meta: { title: 'Intelligence Artificielle', icon: 'eye-open', affix: true } // TAO
       }

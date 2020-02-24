@@ -88,7 +88,7 @@
         type="success"
         size="small"
         icon="el-icon-check"
-        @click="dialogNewVisible = true"
+        @click="dialogNewVisible = false"
       >
         OK
       </el-button>
@@ -96,7 +96,7 @@
         type="danger"
         size="small"
         icon="el-icon-close"
-        @click="dialogNewVisible = true"
+        @click="dialogNewVisible = false"
       >
         Annuler
       </el-button>

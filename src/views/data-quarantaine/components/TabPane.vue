@@ -3,36 +3,26 @@
     <el-table-column
       v-loading="loading"
       align="center"
-      label="ID"
-      width="65"
+      label="Nom"
+      width="200"
       element-loading-text="Chargement des données..."
     >
       <template slot-scope="scope">
-        <span>{{ scope.row.id }}</span>
-      </template>
-    </el-table-column>
-
-    <el-table-column width="180px" align="center" label="Nom">
-      <template slot-scope="scope">
-        <span>{{ scope.row.nom }}</span>
+        <span>{{ scope.row.fileName }}</span>
       </template>
     </el-table-column>
 
     <el-table-column width="380px" align="center" label="Description">
-      <template slot-scope="scope">
-        <span>{{ scope.row.description }}</span>
-      </template>
+      <span>OpenData : Urbanisme (Espaces verts Paris)</span>
     </el-table-column>
 
     <el-table-column width="80px" align="center" label="Format">
-      <template slot-scope="scope">
-        <span>{{ scope.row.format }}</span>
-      </template>
+      <span>CSV</span>
     </el-table-column>
 
     <el-table-column width="180px" align="center" label="Date intégration">
       <template slot-scope="scope">
-        <span>{{ scope.row.date_integration }}</span>
+        <span>{{ scope.row.start | parseTime('{y}-{m}-{d} {h}:{i}:{s}') }}</span>
       </template>
     </el-table-column>
 
@@ -46,7 +36,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/data-security'
+import { fetchList } from '@/api/data-integration'
 
 export default {
   filters: {
@@ -62,11 +52,12 @@ export default {
   props: {
     status: {
       type: String,
-      default: 'OK'
+      default: 'SUCCESS'
     }
   },
   data() {
     return {
+      dummyId: 1,
       list: null,
       listQuery: {
         page: 1,
@@ -85,7 +76,10 @@ export default {
       this.loading = true
       this.$emit('create') // for test
       fetchList(this.listQuery).then(response => {
-        this.list = response.data.items
+        this.list = response.data
+        if (this.status === 'ERROR') {
+          this.list = null
+        }
         this.loading = false
       })
     }

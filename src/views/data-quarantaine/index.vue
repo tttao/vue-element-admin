@@ -19,10 +19,10 @@ export default {
   data() {
     return {
       tabMapOptions: [
-        { label: 'Fichiers en quarantaine', key: 'KO' },
-        { label: 'Fichiers analysés', key: 'OK' }
+        { label: 'Fichiers en quarantaine', key: 'ERROR' },
+        { label: 'Fichiers analysés', key: 'SUCCESS' }
       ],
-      activeName: 'KO'
+      activeName: 'ERROR'
     }
   },
   watch: {

@@ -165,6 +165,23 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
+    redirect: '/data-permission',
+    children: [
+      {
+        path: 'permissions',
+        component: () => import('@/views/data-permission/role'),
+        name: 'PagePermission',
+        meta: {
+          title: 'Utilisateurs',
+          icon: 'peoples',
+          affix: true,
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      }]
+  },
+  {
+    path: '/',
+    component: Layout,
     redirect: '/export',
     children: [
       {

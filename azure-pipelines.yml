@@ -21,10 +21,10 @@ steps:
 - script: |
     npm run build:prod
   displayName: 'npm build'
-- task: AzureFileCopy@3
+- task: CopyFilesOverSSH@0
   inputs:
-    SourcePath: 'dist'
-    azureSubscription: 'Paiement à l’utilisation(1)(436be746-1f20-4068-911b-9fc4765b40cf)'
-    Destination: 'AzureBlob'
-    storage: 'datagravitydata'
-    ContainerName: '$web'
+    sshEndpoint: 'Gravity'
+    sourceFolder: 'dist'
+    contents: '**'
+    targetFolder: '/home/gravity/data-gravity-ui'
+    readyTimeout: '20000'
